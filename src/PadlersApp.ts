@@ -1,16 +1,16 @@
 import { ApplicationElement, Color } from 'enta';
-import BottomNavigation from './components/bottom/BottomNavigation';
-import PadelScore from './components/PadelScore';
-import TopBar from './components/TopBar';
+import I18N from './globals/i18n/I18N';
+import NavBar from './navigation/NavBar';
 
 export default class PadlersApp extends ApplicationElement {
     public constructor() {
         super();
         this.name = 'PadlersApp';
         this.backgroundColor = new Color(240, 20, 98);
-        this.addElement(new TopBar());
-        this.addElement(new PadelScore());
-        this.addElement(new BottomNavigation());
+        this.addElements([new NavBar()]);
+        window.addEventListener('click', () => {
+            I18N.currentLocale = I18N.SWEDISH;
+        });
     }
 }
 customElements.define('padlers-app', PadlersApp);
