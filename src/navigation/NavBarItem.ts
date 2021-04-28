@@ -1,6 +1,6 @@
-import IBottomNavigationItem from './IBottomNavigationItem';
+import INavBarItem from './INavBarItem';
 
-export default class BottomNavigationItem implements IBottomNavigationItem {
+export default class NavBarItem implements INavBarItem {
     public icon: string;
     public text: string;
     public constructor(icon: string, text: string) {
