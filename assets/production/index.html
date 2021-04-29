@@ -11,11 +11,30 @@
     <link rel="mask-icon" href="icons/safari-pinned-tab.svg" color="#ba1c1c">
     <meta name="msapplication-TileColor" content="#ffffff">
     <meta name="theme-color" content="#ffffff">
+    <link rel="preload" href="fonts/cerebri-sans-semi-bold.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="preload" href="fonts/roboto-mono-bold.woff2" as="font" type="font/woff2" crossorigin>
     <link rel="manifest" href="padlers.webmanifest">
     <title>Padlers</title>
+    <style>
+      @font-face {
+        font-family: 'Cerebri Sans';
+        font-weight: 600;
+        font-display: block;
+        src: url('fonts/cerebri-sans-semi-bold.woff2') format('woff2'), url('fonts/cerebri-sans-semi-bold.woff') format('woff');
+      }
+      @font-face {
+        font-family: 'Roboto Mono';
+        src: url('fonts/roboto-mono-bold.woff2') format('woff2'), url('fonts/roboto-mono-bold.woff') format('woff');
+        font-weight: 700;
+        font-style: normal;
+        font-display: block;
+      }
+    </style>
     <script>var VERSION = "{{version}}";</script>
   </head>
   <body>
+    <p style="font-family: 'Cerebri Sans', sans-serif;top: -100px; font-weight: 600; position: absolute;">Cerebri Sans Semi Bold Preload</p>
+    <p style="font-family: 'Roboto Mono', sans-serif;top: -100px; font-weight: 700; position: absolute;">Roboto Mono Bold Preload</p>
     <padlers-app></padlers-app>
     <script>(function(){function g(){var b=document.createElement("script");b.src="./customElements.js";b.onload=e;document.body.appendChild(b)}function e(){var b=VERSION,a=!0,c=document.createElement("script");if("function"===typeof Object.fromEntries)var d=2019;else void 0!==window.Promise&&"function"===typeof window.Promise.prototype.finally?d=2018:"function"===typeof String.prototype.padStart?d=2017:"function"===typeof Array.prototype.includes?d=2016:void 0!==window.Promise?d=2015:(d=5,a=!1);a&&(c.type="module");c.src="PadlersApp."+b+".es"+d+".js";c.defer=!0;document.body.appendChild(c)}if("function"!==typeof window.CustomEvent){var f=function(b,a){a=a||{bubbles:!1,cancelable:!1,detail:void 0};var c=document.createEvent("CustomEvent");c.initCustomEvent(b,a.bubbles,a.cancelable,a.detail);return c};f.prototype=window.Event.prototype;window.CustomEvent=f}window.customElements?e():g()})()</script>
   </body>
