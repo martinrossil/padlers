@@ -1,5 +1,6 @@
-import { Color, ILabelElement, IPathElement, ItemRenderer, LabelElement, PathElement, TypeFace } from 'enta';
+import { ILabelElement, IPathElement, ItemRenderer, LabelElement, PathElement } from 'enta';
 import { Cursor } from 'enta/dist/enums/Cursor';
+import Theme from '../globals/theme/Theme';
 import INavBarItem from './INavBarItem';
 
 export default class NavBarItemView extends ItemRenderer<INavBarItem> {
@@ -20,21 +21,21 @@ export default class NavBarItemView extends ItemRenderer<INavBarItem> {
 
     public initial(): void {
         if (!this.selected) {
-            this.pathElement.strokeColor = new Color(216, 32, 69);
-            this.labelElement.textColor = new Color(216, 32, 69);
+            this.pathElement.strokeColor = Theme.colors.secondaryText;
+            this.labelElement.textColor = Theme.colors.secondaryText;
         } else {
-            this.pathElement.strokeColor = new Color(214, 78, 54);
-            this.labelElement.textColor = new Color(214, 78, 54);
+            this.pathElement.strokeColor = Theme.colors.primaryBlue;
+            this.labelElement.textColor = Theme.colors.primaryBlue;
         }
     }
 
     protected selectedChanged(): void {
         if (this.selected) {
-            this.pathElement.strokeColor = new Color(214, 78, 54);
-            this.labelElement.textColor = new Color(214, 78, 54);
+            this.pathElement.strokeColor = Theme.colors.primaryBlue;
+            this.labelElement.textColor = Theme.colors.primaryBlue;
         } else {
-            this.pathElement.strokeColor = new Color(216, 32, 69);
-            this.labelElement.textColor = new Color(216, 32, 69);
+            this.pathElement.strokeColor = Theme.colors.secondaryText;
+            this.labelElement.textColor = Theme.colors.secondaryText;
         }
     }
 
@@ -44,11 +45,11 @@ export default class NavBarItemView extends ItemRenderer<INavBarItem> {
         if (!this._pathElement) {
             this._pathElement = new PathElement();
             this._pathElement.size(24, 24);
-            this._pathElement.strokeColor = new Color(216, 32, 69);
+            this._pathElement.strokeColor = Theme.colors.secondaryText;
             this._pathElement.strokeWidth = 2;
             this._pathElement.strokeLineCap = 'round';
             this._pathElement.strokeLineJoin = 'round';
-            this._pathElement.fillColor = new Color(0, 0, 0, 0.0);
+            this._pathElement.fillColor = Theme.colors.transparent;
             this._pathElement.horizontalCenter = 0;
             this._pathElement.bottom = 28;
         }
@@ -61,10 +62,10 @@ export default class NavBarItemView extends ItemRenderer<INavBarItem> {
         if (!this._labelElement) {
             this._labelElement = new LabelElement();
             this._labelElement.enabled = false;
-            this._labelElement.typeFace = new TypeFace('Cerebri Sans', 0.7, 0.1, -0.02);
+            this._labelElement.typeFace = Theme.typography.ceribriSans;
             this._labelElement.fontSize = 8;
             this._labelElement.fontWeight = 600;
-            this._labelElement.textColor = new Color(216, 32, 69);
+            this._labelElement.textColor = Theme.colors.secondaryText;
             this._labelElement.horizontalCenter = 0;
             this._labelElement.bottom = 13;
             this._labelElement.letterSpacing = 1;
