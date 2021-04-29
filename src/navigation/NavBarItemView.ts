@@ -62,11 +62,12 @@ export default class NavBarItemView extends ItemRenderer<INavBarItem> {
             this._labelElement = new LabelElement();
             this._labelElement.enabled = false;
             this._labelElement.typeFace = new TypeFace('Cerebri Sans', 0.7, 0.1, -0.02);
-            this._labelElement.fontSize = 10;
+            this._labelElement.fontSize = 8;
             this._labelElement.fontWeight = 600;
             this._labelElement.textColor = new Color(216, 32, 69);
             this._labelElement.horizontalCenter = 0;
             this._labelElement.bottom = 13;
+            this._labelElement.letterSpacing = 1;
         }
         return this._labelElement;
     }
