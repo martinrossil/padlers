@@ -29,9 +29,6 @@ export default {
                         src: 'assets/production/**.*',
                         dest: 'public',
                         transform: (contents) => contents.toString().replace('{{version}}', version).replace('{{version}}', version)
-                    },
-                    {
-                        src: 'assets/small/**.*', dest: 'public/produkter'
                     }
                 ]
             }),
