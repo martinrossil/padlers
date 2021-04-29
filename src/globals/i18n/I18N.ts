@@ -1,6 +1,6 @@
 import { EventDispatcher, IEventDispatcher } from 'enta';
 import DanishLocale from './locales/DanishLocale';
-import ILocale from './ILocale';
+import ILocale from './locales/ILocale';
 import EnglishLocale from './locales/EnglishLocale';
 import GermanLocale from './locales/GermanLocale';
 import SwedishLocale from './locales/SwedishLocale';
@@ -20,7 +20,7 @@ export default class I18N {
             return;
         }
         this._currentLocale = locale;
-        this.dispatcher.dispatch('localeChanged', null, false);
+        I18N.dispatcher.dispatch('localeChanged', null, false);
     }
 
     public static get currentLocale(): ILocale {
