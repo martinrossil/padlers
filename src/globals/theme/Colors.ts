@@ -28,4 +28,13 @@ export default class Colors implements IColors {
         }
         return this._transparent;
     }
+
+    private _applicationBackground!: IColor;
+
+    public get applicationBackground(): IColor {
+        if (!this._applicationBackground) {
+            this._applicationBackground = new Color(240, 20, 98);
+        }
+        return this._applicationBackground;
+    }
 }
