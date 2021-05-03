@@ -24,6 +24,7 @@ export default {
             copy({
                 targets: [
                     { src: 'assets/fonts/**.*', dest: 'public/fonts' },
+                    { src: 'assets/profile/**.*', dest: 'public/profile' },
                     { src: 'assets/production/icons/**.*', dest: 'public/icons' },
                     {
                         src: 'assets/production/**.*',
