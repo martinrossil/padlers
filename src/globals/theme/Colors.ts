@@ -37,4 +37,58 @@ export default class Colors implements IColors {
         }
         return this._applicationBackground;
     }
+
+    private _gold!: IColor;
+
+    public get gold(): IColor {
+        if (!this._gold) {
+            this._gold = new Color(43, 100, 72);
+        }
+        return this._gold;
+    }
+
+    private _white!: IColor;
+
+    public get white(): IColor {
+        if (!this._white) {
+            this._white = new Color(0, 0, 100);
+        }
+        return this._white;
+    }
+
+    private _whiteOpacity!: IColor;
+
+    public get whiteOpacity(): IColor {
+        if (!this._whiteOpacity) {
+            this._whiteOpacity = new Color(0, 0, 100, 0.77);
+        }
+        return this._whiteOpacity;
+    }
+
+    private _primaryText!: IColor;
+
+    public get primaryText(): IColor {
+        if (!this._primaryText) {
+            this._primaryText = new Color(212, 33, 18);
+        }
+        return this._primaryText;
+    }
+
+    private _primaryTextOpacity!: IColor;
+
+    public get primaryTextOpacity(): IColor {
+        if (!this._primaryTextOpacity) {
+            this._primaryTextOpacity = new Color(212, 33, 18, 0.56);
+        }
+        return this._primaryTextOpacity;
+    }
+
+    private _tertiaryText!: IColor;
+
+    public get tertiaryText(): IColor {
+        if (!this._tertiaryText) {
+            this._tertiaryText = new Color(213, 29, 33);
+        }
+        return this._tertiaryText;
+    }
 }
