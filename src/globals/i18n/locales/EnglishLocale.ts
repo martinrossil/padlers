@@ -19,4 +19,10 @@ export default class EnglishLocale implements ILocale {
         }
         return this._navBarItems;
     }
+
+    public gold = 'GOLD';
+    public points = 'Points';
+    public yourPadelScore = 'Your padel score';
+    public rankingCardDescription = 'You either die Spongebob or you live long enough.';
+    public learnAboutRankingSystem = 'Learn about our ranking system';
 }

@@ -19,4 +19,10 @@ export default class DanishLocale implements ILocale {
         }
         return this._navBarItems;
     }
+
+    public gold = 'GULD';
+    public points = 'Points';
+    public yourPadelScore = 'Din padel score';
+    public rankingCardDescription = 'Du dør enten Spongebob, eller du lever længe nok.';
+    public learnAboutRankingSystem = 'Lær om vores ranking system';
 }

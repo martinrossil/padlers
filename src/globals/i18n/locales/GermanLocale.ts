@@ -19,4 +19,10 @@ export default class GermanLocale implements ILocale {
         }
         return this._navBarItems;
     }
+
+    public gold = 'GOLD';
+    public points = 'Punkte'; // Wrong translation!
+    public yourPadelScore = 'Deine padel score';
+    public rankingCardDescription = 'Du stirbst entweder SpongeBob oder du lebst lange genug.';
+    public learnAboutRankingSystem = 'Erfahren Sie mehr über unser Ranking-System';
 }

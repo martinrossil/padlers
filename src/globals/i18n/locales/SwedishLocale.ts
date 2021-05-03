@@ -19,4 +19,10 @@ export default class SwedishLocale implements ILocale {
         }
         return this._navBarItems;
     }
+
+    public gold = 'GULD';
+    public points = 'Poäng';
+    public yourPadelScore = 'Din padel score';
+    public rankingCardDescription = 'Du dör antingen Spongebob eller så lever du tillräckligt länge.';
+    public learnAboutRankingSystem = 'Lär dig mer om vårt rankningssystem';
 }
