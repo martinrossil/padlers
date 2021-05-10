@@ -1,49 +1,25 @@
-import { ApplicationElement, IEventListener, IList } from 'enta';
+import { ApplicationElement, IList } from 'enta';
+import { PadlersEvents } from './events/PadlersEvents';
 import Theme from './globals/theme/Theme';
-import IAccount from './interfaces/vo/IAccount';
-import IRank from './interfaces/vo/IRank';
+import IPadlersApp from './IPadlersApp';
+import PadlersMachine from './machines/PadlersMachine';
 import INavBarItem from './navigation/INavBarItem';
 import NavBar from './navigation/NavBar';
 import IScreens from './screens/IScreens';
 import Screens from './screens/Screens';
-import Account from './vo/Account';
-import Rank from './vo/Rank';
 
-export default class PadlersApp extends ApplicationElement {
+export default class PadlersApp extends ApplicationElement implements IPadlersApp {
     public constructor() {
         super();
         this.name = 'PadlersApp';
         this.backgroundColor = Theme.colors.applicationBackground;
-        this.navigationIndexChanged = this.navigationIndexChanged.bind(this);
-        window.addEventListener('load', () => {
-            const rank: IRank = new Rank(0, 3, 2301);
-            const account: IAccount = new Account('abcde', 'Hans', 'Kristoffer', 22, 'hans@bookli.dk', rank);
-            this.screens.account = account;
-            this.addElements([this.screens, this.navBar]);
-        });
+        window.addEventListener('load', () => { this.dispatch(PadlersEvents.LOAD_COMPLETED); });
     }
 
-    private _screens!: IScreens;
+    private padlersMachine: PadlersMachine = new PadlersMachine(this);
 
-    private get screens(): IScreens {
-        if (!this._screens) {
-            this._screens = new Screens();
-        }
-        return this._screens;
-    }
+    public screens: IScreens = new Screens();
 
-    private _navBar!: IList<INavBarItem>;
-
-    private get navBar(): IList<INavBarItem> {
-        if (!this._navBar) {
-            this._navBar = new NavBar();
-            this._navBar.addEventListener('selectedIndexChanged', this.navigationIndexChanged as IEventListener);
-        }
-        return this._navBar;
-    }
-
-    private navigationIndexChanged(e: CustomEvent<number>): void {
-        this.screens.screenIndex = e.detail;
-    }
+    public navBar: IList<INavBarItem> = new NavBar();
 }
 customElements.define('padlers-app', PadlersApp);
