@@ -1,12 +1,12 @@
 import { ApplicationElement, IEventListener, IList } from 'enta';
 import Theme from './globals/theme/Theme';
+import IAccount from './interfaces/vo/IAccount';
+import IRank from './interfaces/vo/IRank';
 import INavBarItem from './navigation/INavBarItem';
 import NavBar from './navigation/NavBar';
 import IScreens from './screens/IScreens';
 import Screens from './screens/Screens';
 import Account from './vo/Account';
-import IAccount from './interfaces/vo/IAccount';
-import IRank from './interfaces/vo/IRank';
 import Rank from './vo/Rank';
 
 export default class PadlersApp extends ApplicationElement {
@@ -43,7 +43,6 @@ export default class PadlersApp extends ApplicationElement {
     }
 
     private navigationIndexChanged(e: CustomEvent<number>): void {
-        console.log(this.name, e.type, e.detail);
         this.screens.screenIndex = e.detail;
     }
 }

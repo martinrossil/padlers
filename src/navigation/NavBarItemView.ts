@@ -1,5 +1,4 @@
-import { ILabelElement, IPathElement, ItemRenderer, LabelElement, PathElement } from 'enta';
-import { Cursor } from 'enta/dist/enums/Cursor';
+import { Cursor, ILabelElement, IPathElement, ItemRenderer, LabelElement, PathElement } from 'enta';
 import Theme from '../globals/theme/Theme';
 import INavBarItem from './INavBarItem';
 
