@@ -1,4 +1,5 @@
 import { BoxShadowFilter, Color, HorizontalLayout, List } from 'enta';
+import { PadlersEvents } from '../events/PadlersEvents';
 import I18N from '../globals/i18n/I18N';
 import INavBarItem from './INavBarItem';
 import NavBarItemView from './NavBarItemView';
@@ -19,6 +20,11 @@ export default class NavBar extends List<INavBarItem> {
         this.dataProvider = I18N.currentLocale.navBarItems;
         this.selectedIndex = 0;
         I18N.dispatcher.addEventListener('localeChanged', () => { this.dataProvider = I18N.currentLocale.navBarItems; });
+        this.addEventListener('selectedIndexChanged', this.navIndexChanged);
+    }
+
+    private navIndexChanged(): void {
+        this.dispatch(PadlersEvents.NAV_INDEX_CHANGED, this.selectedIndex, true);
     }
 }
 customElements.define('nav-bar', NavBar);
