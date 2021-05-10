@@ -17,10 +17,6 @@
         "source": "**",
         "headers": [
           {
-            "key": "Content-Security-Policy",
-            "value": "connect-src 'self'; default-src 'self'; font-src 'self'; img-src 'self' data:; manifest-src 'self'; object-src 'none'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; upgrade-insecure-requests;"
-          },
-          {
             "key": "Referrer-Policy",
             "value": "no-referrer"
           },
@@ -55,8 +51,7 @@
             "value": "max-age=60"
           }
         ]
-      }
-      ,
+      },
       {
         "source": "index.html",
         "headers": [
