@@ -2,22 +2,14 @@ import { version } from './package.json';
 import clear from 'rollup-plugin-clear';
 import resolve from '@rollup/plugin-node-resolve';
 import copy from 'rollup-plugin-copy';
-import compiler from '@ampproject/rollup-plugin-closure-compiler';
+import esbuild from 'rollup-plugin-esbuild'
 import filesize from 'rollup-plugin-filesize';
 import typescript from 'rollup-plugin-typescript2';
 import strip from '@rollup/plugin-strip';
 export default {
         input: './src/PadlersApp.ts',
         // eslint-disable-next-line
-        onwarn: function(warning, warn) {
-            if (warning.code === 'INPUT_HOOK_IN_OUTPUT_PLUGIN') {
-                return;
-            }
-            if (warning.code === 'MISSING_NAME_OPTION_FOR_IIFE_EXPORT') {
-                return;
-            }
-            warn(warning);
-        },
+        onwarn: function(warning, warn) {},
         plugins: [
             clear({ targets: ['public'] }),
             resolve(),
@@ -37,77 +29,14 @@ export default {
             strip({ include: '**/*.ts' }),
             filesize({ showBrotliSize: true })
         ],
-        output: [
-            {
+        output: [{
                 entryFileNames: '[name].' + version + '.es2019.js',
                 dir: './public/',
                 format: 'esm',
                 plugins: [
-                    compiler({
-                        language_in: 'ECMASCRIPT_NEXT',
-                        compilation_level: 'ADVANCED',
-                        language_out: 'ECMASCRIPT_2019'
-                    })
-                ]
-            },
-            {
-                entryFileNames: '[name].' + version + '.es2018.js',
-                dir: './public/',
-                format: 'esm',
-                plugins: [
-                    compiler({
-                        language_in: 'ECMASCRIPT_NEXT',
-                        compilation_level: 'ADVANCED',
-                        language_out: 'ECMASCRIPT_2018'
-                    })
-                ]
-            },
-            {
-                entryFileNames: '[name].' + version + '.es2017.js',
-                dir: './public/',
-                format: 'esm',
-                plugins: [
-                    compiler({
-                        language_in: 'ECMASCRIPT_NEXT',
-                        compilation_level: 'ADVANCED',
-                        language_out: 'ECMASCRIPT_2017'
-                    })
-                ]
-            },
-            {
-                entryFileNames: '[name].' + version + '.es2016.js',
-                dir: './public/',
-                format: 'esm',
-                plugins: [
-                    compiler({
-                        language_in: 'ECMASCRIPT_NEXT',
-                        compilation_level: 'ADVANCED',
-                        language_out: 'ECMASCRIPT_2016'
-                    })
-                ]
-            },
-            {
-                entryFileNames: '[name].' + version + '.es2015.js',
-                dir: './public/',
-                format: 'esm',
-                plugins: [
-                    compiler({
-                        language_in: 'ECMASCRIPT_NEXT',
-                        compilation_level: 'ADVANCED',
-                        language_out: 'ECMASCRIPT_2015'
-                    })
-                ]
-            },
-            {
-                entryFileNames: '[name].' + version + '.es5.js',
-                dir: './public/',
-                inlineDynamicImports: true, // this has to be last, otherwise we get split chunk errors
-                format: 'iife',
-                plugins: [
-                    compiler({
-                        language_in: 'ECMASCRIPT_NEXT',
-                        compilation_level: 'ADVANCED',
-                        language_out: 'ECMASCRIPT5'
+                    esbuild({
+                        minify: true,
+                        target: 'esnext'
                     })
                 ]
             }
