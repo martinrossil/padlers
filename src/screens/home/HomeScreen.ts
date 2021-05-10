@@ -11,13 +11,10 @@ export default class HomeScreen extends BaseScreen {
         this.name = 'HomeScreen';
         this.percentWidth = this.percentHeight = 100;
         this.visible = false;
-        this.addElements([
-            this.profileRankContainer
-        ]);
+        this.addElement(this.profileRankContainer);
     }
 
     protected accountChanged(): void {
-        console.log(this.name, 'accountChanged()', this.account);
         if (this.account) {
             this.nameLabel.text = this.account.firstName + ' ' + this.account.lastName;
             this.profileImage.source = 'profile/' + this.account.uid + '.jpg';
@@ -35,7 +32,6 @@ export default class HomeScreen extends BaseScreen {
         if (!this._profileRankContainer) {
             this._profileRankContainer = new DisplayContainer();
             this._profileRankContainer.percentWidth = 100;
-            // this._profileRankContainer.height = 265;
             this._profileRankContainer.addElements([this.profileContainer, this.rankingCard]);
         }
         return this._profileRankContainer;

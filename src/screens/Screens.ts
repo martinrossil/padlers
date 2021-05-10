@@ -1,8 +1,8 @@
 import HomeScreen from './home/HomeScreen';
-import MatchesScreen from './MatchesScreen';
-import RankScreen from './RankScreen';
-import SocialScreen from './SocialScreen';
-import TournamentsScreen from './TournamentsScreen';
+import MatchesScreen from './matches/MatchesScreen';
+import RankScreen from './ranking/RankScreen';
+import SocialScreen from './social/SocialScreen';
+import TournamentsScreen from './tournaments/TournamentsScreen';
 import IScreens from './IScreens';
 import IAccount from '../interfaces/vo/IAccount';
 import { ScreenNavigator } from 'enta';
