@@ -11,7 +11,6 @@ export default class HomeScreen extends BaseScreen {
         this.name = 'HomeScreen';
         this.percentWidth = this.percentHeight = 100;
         this.visible = false;
-        this.addElement(this.profileRankContainer);
     }
 
     protected accountChanged(): void {
